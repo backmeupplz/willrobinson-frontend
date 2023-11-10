@@ -10,8 +10,12 @@
     "preview": "yarn build && yarn vite preview"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^1.2.0",
+    "envalid": "^8.0.0",
     "jotai": "^2.5.1",
-    "preact": "^10.18.2"
+    "preact": "^10.18.2",
+    "viem": "^1.18.9",
+    "wagmi": "^1.4.6"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.6.0",
