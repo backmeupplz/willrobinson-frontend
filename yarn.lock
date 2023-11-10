@@ -8459,40 +8459,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"frontend-starter@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "frontend-starter@workspace:."
-  dependencies:
-    "@preact/preset-vite": ^2.6.0
-    "@tailwindcss/typography": ^0.5.10
-    "@types/node": ^20.9.0
-    "@typescript-eslint/eslint-plugin": ^6.10.0
-    "@typescript-eslint/parser": ^6.10.0
-    "@vitejs/plugin-react": ^4.1.1
-    autoprefixer: ^10.4.16
-    cross-env: ^7.0.3
-    daisyui: ^3.9.4
-    eslint: ^8.53.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-import: ^2.29.0
-    eslint-plugin-no-relative-import-paths: ^1.5.3
-    eslint-plugin-prettier: ^5.0.1
-    eslint-plugin-react: ^7.33.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-sort-imports-es6-autofix: ^0.6.0
-    jotai: ^2.5.1
-    postcss: ^8.4.31
-    preact: ^10.18.2
-    prettier: ^3.0.3
-    react-scripts: ^5.0.1
-    rollup-plugin-visualizer: ^5.9.2
-    tailwindcss: ^3.3.5
-    typescript: ^5.2.2
-    vite: ^4.5.0
-    vite-tsconfig-paths: ^4.2.1
-  languageName: unknown
-  linkType: soft
-
 "fs-extra@npm:^10.0.0":
   version: 10.0.0
   resolution: "fs-extra@npm:10.0.0"
@@ -16288,6 +16254,40 @@ __metadata:
   checksum: d5fc37cd561f9daee3c80e03b92ed3e84d80dde3365a8767263d03dacfc8fa06b065ffe1df00d8c2a09f731482fcacae745abfbb478d4af36d0a891fad4834d3
   languageName: node
   linkType: hard
+
+"willrobinson-frontend@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "willrobinson-frontend@workspace:."
+  dependencies:
+    "@preact/preset-vite": ^2.6.0
+    "@tailwindcss/typography": ^0.5.10
+    "@types/node": ^20.9.0
+    "@typescript-eslint/eslint-plugin": ^6.10.0
+    "@typescript-eslint/parser": ^6.10.0
+    "@vitejs/plugin-react": ^4.1.1
+    autoprefixer: ^10.4.16
+    cross-env: ^7.0.3
+    daisyui: ^3.9.4
+    eslint: ^8.53.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-import: ^2.29.0
+    eslint-plugin-no-relative-import-paths: ^1.5.3
+    eslint-plugin-prettier: ^5.0.1
+    eslint-plugin-react: ^7.33.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-sort-imports-es6-autofix: ^0.6.0
+    jotai: ^2.5.1
+    postcss: ^8.4.31
+    preact: ^10.18.2
+    prettier: ^3.0.3
+    react-scripts: ^5.0.1
+    rollup-plugin-visualizer: ^5.9.2
+    tailwindcss: ^3.3.5
+    typescript: ^5.2.2
+    vite: ^4.5.0
+    vite-tsconfig-paths: ^4.2.1
+  languageName: unknown
+  linkType: soft
 
 "word-wrap@npm:^1.2.3, word-wrap@npm:~1.2.3":
   version: 1.2.3
