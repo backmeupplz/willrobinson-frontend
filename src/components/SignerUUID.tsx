@@ -21,7 +21,8 @@ function SignerRequest() {
     <div>
       <p>
         Now you need to approve the signer so that I can like all casts on your
-        behalf 👇👇👇
+        behalf (don't worry, you'll have to manually activate it with a button)
+        👇👇👇
       </p>
       <QRCodes />
       <p>
