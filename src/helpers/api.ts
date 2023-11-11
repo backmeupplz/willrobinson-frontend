@@ -48,6 +48,11 @@ export async function activate(
         signature,
       },
       body: JSON.stringify({ activate }),
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error(res.statusText)
+      }
+      return res
     })
   ).json()) as {
     active: boolean

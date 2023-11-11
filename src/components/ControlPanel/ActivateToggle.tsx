@@ -1,19 +1,21 @@
 import ActivateButton from 'components/ControlPanel/ActivateButton'
 import SuspenseWithError from 'components/SuspenseWithError'
+import cost from 'helpers/cost'
 
 export default function () {
   return (
     <div>
       <h3>Control panel 🚀</h3>
       <p>
-        The cost of my services is 20 USDC/day. Assuming that you have 20 USDC
-        on the payment account above, you should be able to activate the liking
-        with the button below (or turn it off by pressing the same button).
+        The cost of my services is {cost} ETH/day. Assuming that you have {cost}
+        ETH on the payment account above, you should be able to activate the
+        liking with the button below (or turn it off by pressing the same
+        button).
       </p>
       <p>
-        20 USDC lasts you for a day. If your account is activated (i.e., not in
-        the "off" state), the payment account has enough funds, and your 24
-        hours are over, then I will withdraw another 20 USDC.
+        {cost} ETH lasts you for a day. If your account is activated (i.e., not
+        in the "off" state), the payment account has enough funds, and your 24
+        hours are over, then I will withdraw another {cost} ETH.
       </p>
       <p>
         If you stop your account and 24 hours are over, I will not attempt to

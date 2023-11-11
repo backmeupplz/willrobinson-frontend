@@ -8,7 +8,7 @@ import userAtom from 'atoms/userAtom'
 export default function () {
   const [user, setUser] = useAtom(userAtom)
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>("WTF YOU DON'T HABE MONEYS")
+  const [error, setError] = useState<string | null>(null)
   const { address } = useAccount()
   const signature = useAtomValue(signatureAtom)
   return user && address && signature ? (
@@ -23,7 +23,9 @@ export default function () {
             setUser(getUser(address, signature))
           } catch (error) {
             console.error(error)
-            setError(error instanceof Error ? error.message : String(error))
+            setError(
+              "Ugh oh, some error happened maybe the gas didn't calculate well try again later or maybe you didn't have enough funds? Look into the mirror and ask yourselves: have you touched grass today?"
+            )
           } finally {
             setLoading(false)
           }

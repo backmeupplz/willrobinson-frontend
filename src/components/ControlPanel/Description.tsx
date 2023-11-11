@@ -6,7 +6,7 @@ export default function () {
       <p>Welcome to the dungeon ⚣⚣⚣</p>
       <p>
         You signed the message and approved the signer. Now I can like on your
-        behalf. The only thing left is to give me 20 USDC. Hey, $20 is $20.
+        behalf. The only thing left is to give me $20. Hey, $20 is $20.
       </p>
       <p>
         Below you will find your user details and the Ethereum address that you

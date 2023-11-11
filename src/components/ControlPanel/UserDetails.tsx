@@ -2,22 +2,25 @@ import {
   Address,
   useAccount,
   useBalance,
-  useContractWrite,
-  usePrepareContractWrite,
+  usePrepareSendTransaction,
+  useSendTransaction,
 } from 'wagmi'
+import { formatEther, parseEther } from 'viem'
 import { getUser } from 'helpers/api'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { useEffect } from 'preact/hooks'
+import Link from 'components/Link'
 import QRCode from 'react-qr-code'
 import SuspenseWithError from 'components/SuspenseWithError'
+import cost from 'helpers/cost'
 import signatureAtom from 'atoms/signatureAtom'
 import userAtom from 'atoms/userAtom'
 
 function Balance({ address }: { address: Address }) {
   const { isLoading, data, error } = useBalance({
     address,
-    token: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     watch: true,
+    formatUnits: 'ether',
   })
   return error || !data ? (
     <p>Error loading balance</p>
@@ -25,7 +28,7 @@ function Balance({ address }: { address: Address }) {
     <p>Loading balance...</p>
   ) : (
     <p>
-      Balance: {Number(data.value) / 1000000} {data.symbol}
+      Balance: {formatEther(data.value)} {data.symbol}
     </p>
   )
 }
@@ -36,25 +39,11 @@ function UserDetails() {
   const signature = useAtomValue(signatureAtom)
   const { address } = useAccount()
 
-  const { config } = usePrepareContractWrite({
-    address: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-    abi: [
-      {
-        constant: false,
-        inputs: [
-          { name: '_to', type: 'address' },
-          { name: '_value', type: 'uint256' },
-        ],
-        name: 'transfer',
-        outputs: [{ name: 'success', type: 'bool' }],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-    ],
-    functionName: 'transfer',
-    args: [user.paymentAddress, 20000000],
+  const { config } = usePrepareSendTransaction({
+    to: user.paymentAddress,
+    value: parseEther('0.01'),
   })
-  const { write: sendTransaction } = useContractWrite(config)
+  const { sendTransaction } = useSendTransaction(config)
   return user ? (
     <div>
       <p>Actively liking: {user.active ? 'yes' : 'no'}</p>
@@ -62,7 +51,12 @@ function UserDetails() {
         <p>Paid until: {new Date(user.paidUntil).toLocaleString()}</p>
       )}
       <p>
-        Payment address: <span class="break-words">{user.paymentAddress}</span>
+        Payment address:{' '}
+        <span class="break-words">
+          <Link url={`https://etherscan.io/address/${user.paymentAddress}`}>
+            {user.paymentAddress}
+          </Link>
+        </span>
       </p>
       <Balance address={user.paymentAddress} />
       <QRCode value={user.paymentAddress} />
@@ -81,7 +75,7 @@ function UserDetails() {
               sendTransaction?.()
             }}
           >
-            Send 20 USDC
+            Send {cost} ETH
           </button>
         </div>
       )}
